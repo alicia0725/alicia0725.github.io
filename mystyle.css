@@ -1,0 +1,92 @@
+body
+{
+    background-color: aliceblue;
+    text-align: center;
+}
+h1
+{
+    color: black;
+    padding: 16px;
+    text-align: center;
+}
+h3
+{
+    color: black;
+    padding: 8px;
+    text-align: center;
+}
+#num1
+{
+    margin-left: 20px;
+    text-align: center;
+    width: 100px;
+    border-radius: 5px;
+}
+#num2
+{
+    margin-left: 20px;
+    text-align: center;
+    width: 100px;
+    border-radius: 5px;
+}
+#num3
+{
+    margin-left: 20px;
+    text-align: center;
+    width: 100px;
+    border-radius: 5px;
+}
+button
+{
+    background-origin: padding-box;
+    border-radius: 5px;
+    width:50px; 
+    height: 40px; 
+}
+#submit
+{
+    background-color: rgba(167, 223, 204, 0.986);
+}
+#reset
+{
+    background-color: rgb(255, 171, 171);
+}
+#info
+{
+    
+    background-color: rgb(255, 134, 134);
+    color: black;
+    border-radius: 10px;
+    text-align: center;
+}
+table
+{
+    border-radius: 5px;
+    border-style: dotted;
+    border-color: rgb(148, 148, 148);
+    text-align: center;
+}
+.center-table
+{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+caption
+{
+    height: max-content;
+    text-align: center;
+}
+thead
+{
+    background-color: bisque;
+}
+tbody
+{
+    background-color: blanchedalmond;
+}
+
+
+
+  

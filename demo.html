@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lottery Game</title>
+        <link rel="stylesheet" href="mystyle.css">
+    </head>
+    <body>
+        <h1>Welcome to my lottery game</h1>
+        <h3>Please enter three numbers (1~10) and click submit</h3>
+        
+        <input id="num1" type="number" min="1" max="10">
+        <input id="num2" type="number" min="1" max="10">
+        <input id="num3" type="number" min="1" max="10">
+
+        <button id="submit" onclick="lottery()">Submit</button>
+        <button id="reset" onclick="resetGame()">Reset</button>
+ 
+        <div id="info" class="info"></div>
+
+        <table border="3" class="center-table">
+			<caption><strong>前期號碼</strong></caption>
+			<thead>
+				<tr>
+					<th>num1</th><th>num2</th><th>num3</th>
+				</tr>
+			</thead>
+			<tbody >
+				<tr>
+					<td>3</td><td>4</td><td>5</td>
+				</tr>
+				<tr>
+					<td>6</td><td>7</td><td>8</td>
+				</tr>
+				<tr>
+					<td>2</td><td>7</td><td>5</td>
+				</tr>
+			</tbody>
+
+
+        
+        <script>
+            function getRandomNumber()
+            {
+                return Math.floor(Math.random() * 10) + 1;
+            }
+            
+            function lottery() 
+            {
+                var num1 = parseInt(document.getElementById("num1").value);
+                var num2 = parseInt(document.getElementById("num2").value);
+                var num3 = parseInt(document.getElementById("num3").value);
+                
+                if (isNaN(num1) || isNaN(num2) || isNaN(num3) || num1 < 1 || num1 > 10 || num2 < 1 || num2 > 10 || num3 < 1 || num3 > 10) {
+                    alert("Please enter numbers between 1 and 10.");
+                    resetGame();
+                    return;
+                }
+                
+                if (num1 === num2 || num1 === num3 || num2 === num3)
+                {
+                    alert("Please enter three different numbers.");
+                    resetGame();
+                    return;
+                }
+                
+                var lucknum1 = getRandomNumber();
+                var lucknum2 = getRandomNumber();
+                var lucknum3 = getRandomNumber();
+    
+                var messageElement = document.getElementById("info");
+                var message = "";
+                
+                if (num1 === lucknum1 && num2 === lucknum2 && num3 === lucknum3) {
+                    var jackpotAmount = 100; // 報獎金額（自訂金額）
+                    var secondPrizeAmount = 50; // 第二獎金額（自訂金額）
+                    var thirdPrizeAmount = 20; // 第三獎金額（自訂金額）
+                    
+                    message = "Congratulations on winning the jackpot! You won " + formatCurrency(jackpotAmount) + ".";
+                } 
+                else if (num1 === lucknum1 && num2 === lucknum2 || num1 === lucknum1 && num3 === lucknum3 || num2 === lucknum2 && num3 === lucknum3)
+                {
+                    message = "Congratulations on your second prize! You won " + formatCurrency(secondPrizeAmount) + ".";
+                } 
+                else if (num1 === lucknum1 || num2 === lucknum2 || num3 === lucknum3)
+                {
+                    message = "Congratulations on your third prize! You won " + formatCurrency(thirdPrizeAmount) + ".";
+                } 
+                else 
+                {
+                    message = "Sorry, you didn't win any prize.";
+                }
+                
+                messageElement.innerHTML = message;
+            }
+            
+            function resetGame() {
+                document.getElementById("num1").value = "";
+                document.getElementById("num2").value = "";
+                document.getElementById("num3").value = "";
+                document.getElementById("info").innerHTML = "";
+            }
+            
+            function formatCurrency(amount) 
+            {
+                return "$" + amount.toFixed(2);
+            }
+        </script>
+    </body>
+</html>
